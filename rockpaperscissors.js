@@ -2,7 +2,7 @@ console.log('Hi!');
 
 const getUserChoice = userInput => {
   userInput = userInput.toLowerCase();
-  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
     return userInput;
   } else {
     return 'You gotta enter rock, paper or scissors to play the game, mate.';
@@ -29,7 +29,7 @@ const getComputerChoice = () => {
 
 // Below is the same as above but using switch statements.
 /*const getComputerChoice = () => {
-  let random = Math.floor(Math.random()* 3) ; 
+  let random = Math.floor(Math.random()* 3 ; 
   switch (random) {
   case 0:
     return 'rock';
@@ -72,10 +72,17 @@ const determineWinner = (userChoice, computerChoice) => {
       return 'You won! You beat the computer, not bad human. #winner'
     }
   }
+  if (userChoice === 'bomb'){
+    if (computerChoice === 'rock'||'paper'||'scissors') {
+      return 'Bomb detonated. Computer destroyed. You are the Rock, Paper, Scissors champion.'
+    } else {
+      return "Something 'aint right, start again."
+    }
+  }
 }
 
 const playGame = () => {
-  const userChoice = getUserChoice('paper');
+  const userChoice = getUserChoice('bomb');
   const computerChoice = getComputerChoice()
   console.log('You threw: ' + userChoice);
   console.log('The computer threw: ' + computerChoice);
@@ -83,3 +90,5 @@ const playGame = () => {
 };
 
 playGame();
+
+
